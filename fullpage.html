@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fullpage</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/fullpage.css">
+    <style>
+
+       
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 100px;
+            z-index: 100;
+        }
+
+        #section1 h1{
+            position: relative;
+            left: 200px;
+            transition: 2s;
+            opacity: 0;
+        }
+
+        #section2 h1{
+            position: relative;
+            left: 300px;
+            
+        }
+
+        #section1.active h1{
+            top:0;
+            opacity: 1;
+        }
+
+
+        .ani1{}
+
+        @keyframes ani1{
+            0% {left: 1000px;}
+            100% {left: 300px;}
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <ul class="gnb">
+            <li data-menuanchor="section1" class="active"><h1 >section1</h1></li>
+            <li data-menuanchor="section2"><a href="#section2">section2</a></li>
+            <li data-menuanchor="section3"><a href="#section3">section3</a></li>
+            <li data-menuanchor="section4"><a href="#section4">section4</a></li>
+        </ul>
+    </header>
+
+    <div id="fullpage">
+        <div class="section" id="s1"><h 1class="animate__animated animate__bounce wow">section1</h></div>
+        <div class="section" id="s2"><h1 class="ani1 wow">section2</h1></div>
+        <div class="section" id="s3">
+                <div class="slide"><h1>----------Slide 1</h1>  </div>
+                <div class="slide"><h1>----------Slide 2</h1>  </div>
+                <div class="slide"> <h1 class="ani1">----------Slide 3 </h1></div>
+                <div class="slide"><h1 >----------Slide 4</h1>  </div>
+        </div>
+        <div class="section" id="s4"><h1>section4</h1></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/fullpage.js"></script>
+    <script src="js/easings.js"></script>
+    <script src="js/wow.js"></script>
+    <script>
+        new fullpage('#fullpage', {
+            menu: '.gnb',
+            anchors:['section1', 'section2', 'section3', 'section4'],
+            sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke'],
+            autoScrolling:true,
+            scrollHorizontally: true,
+            
+});
+
+        new WOW().init();
+    </script>
+</body>
+</html>
